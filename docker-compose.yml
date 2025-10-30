@@ -9,7 +9,7 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
     networks:
-      iphish-net:
+      iphish_iphish-net:
         ipv4_address: 172.22.0.7
 
   keycloak-1:
@@ -36,7 +36,7 @@ services:
     expose:
       - "8080"
     networks:
-      iphish-net:
+      iphish_iphish-net:
         ipv4_address: 172.22.0.6
 
 volumes:
