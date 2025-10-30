@@ -1,0 +1,47 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: iphish-kc-dev-db
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      iphish-net:
+        ipv4_address: 172.22.0.7
+
+  keycloak-1:
+    image: quay.io/keycloak/keycloak:latest
+    container_name: iphish-kc-dev
+    environment:
+      KEYCLOAK_ADMIN: ${KEYCLOAK_ADMIN}
+      KEYCLOAK_ADMIN_PASSWORD: ${KEYCLOAK_ADMIN_PASSWORD}
+      KC_DB: ${KC_DB}
+      KC_DB_URL: ${KC_DB_URL}
+      KC_DB_USERNAME: ${KC_DB_USERNAME}
+      KC_DB_PASSWORD: ${KC_DB_PASSWORD}
+      KC_HOSTNAME: ${KC_HOSTNAME}
+      KC_HOSTNAME_STRICT: ${KC_HOSTNAME_STRICT}
+      KC_HOSTNAME_STRICT_HTTPS: ${KC_HOSTNAME_STRICT_HTTPS}
+      KC_HTTP_ENABLED: ${KC_HTTP_ENABLED}
+      KC_PROXY_HEADERS: ${KC_PROXY_HEADERS}
+      KC_PROXY: ${KC_PROXY}
+    command: ${KC_CMD}
+    volumes:
+      - ./themes:/opt/keycloak/themes
+    depends_on:
+      - postgres
+    expose:
+      - "8080"
+    networks:
+      iphish-net:
+        ipv4_address: 172.22.0.6
+
+volumes:
+  postgres_data:
+
+networks:
+  iphish_iphish-net:
+    external: true

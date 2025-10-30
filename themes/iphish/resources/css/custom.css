@@ -1,0 +1,139 @@
+:root{
+  --bg: #202732;
+  --card-bg: rgba(255,255,255,0.02);
+  --input-bg: rgba(255,255,255,0.01);
+  --input-border: rgba(255,255,255,0.06);
+  --text: #ffffff;
+  --muted: rgba(187,197,199,0.82);
+  --accent1: #4564f8;
+  --accent2: #5d7ce9;
+  --radius: 12px;
+}
+
+/* Page background */
+body, .login-pf body {
+  background: #202732 !important;
+  color: #ffffff;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* center layout wrapper used by our FTL */
+.iphish-center {
+  min-height: calc(100vh - 40px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.iphish-img-ctr {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+/* card */
+.iphish-card {
+  width: 420px;
+  background: rgba(255,255,255,0.02) !important; 
+  padding: 32px;
+  border-radius: 12px;
+  box-shadow: 0 12px 40px rgba(2,6,23,0.6);
+  border: 1px solid rgba(255,255,255,0.03);
+  text-align: left;
+}
+
+#reset-login { display: none !important; }
+
+/* page title & subtitle */
+#kc-page-title, .otp-title {
+  color: #ffffff;
+  font-weight: 700;
+  margin: 0 0 8px 0;
+  font-size: 24px;
+}
+
+.kc-sub {
+  color: rgba(187,197,199,0.82);
+  margin-bottom: 18px;
+  font-size: 13px;
+}
+
+/* logo area (FTL inserts image) */
+#kc-header-wrapper img {
+  display: flex;
+  margin-bottom: 18px;
+  height: 110px;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* form */
+.iphish-form { margin-top: 6px; }
+
+.iphish-input {
+  width: 100%;
+  padding: 12px 14px;
+  margin-bottom: 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.06);
+  background: rgba(255,255,255,0.01) !important;
+  color: #000000;
+  outline: none;
+  font-size: 14px;
+  box-shadow: 0 6px 18px rgba(2,6,23,0.25);
+}
+
+/* labels */
+.iphish-form label {
+  display:block;
+  margin-bottom:6px;
+  color: rgba(62, 70, 71, 0.82);
+  font-size: 13px;
+}
+
+/* row (remember + forgot) */
+.iphish-row {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:18px;
+  font-size:13px;
+}
+.iphish-remember input { margin-right:8px; }
+
+/* primary button */
+.iphish-btn {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #4564f8 0%, #5d7ce9 100%);
+  color: #ffffff;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 12px 36px rgba(69,100,248,0.16);
+}
+
+/* focus states */
+.iphish-input:focus {
+  border-color: rgba(69,100,248,0.95);
+  box-shadow: 0 10px 30px rgba(69,100,248,0.06);
+}
+
+/* links */
+.iphish-forgot {
+  color: #9fb0ff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* responsive */
+@media (max-width: 560px) {
+  .iphish-card { width: 92%; padding: 20px; }
+  #kc-header-wrapper img { height: 56px; }
+}
