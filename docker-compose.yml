@@ -28,7 +28,9 @@ services:
       KC_HTTP_ENABLED: ${KC_HTTP_ENABLED}
       KC_PROXY_HEADERS: ${KC_PROXY_HEADERS}
       KC_PROXY: ${KC_PROXY}
-    command: ${KC_CMD}
+    command: 
+      - ${KC_CMD}
+      - --spi-theme-static-max-age=-1
     volumes:
       - ./themes:/opt/keycloak/themes
     depends_on:
